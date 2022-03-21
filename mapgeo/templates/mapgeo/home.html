@@ -1,0 +1,22 @@
+{% extends 'mapgeo/base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-4">
+        <h4 class="text-center alert alert-info">Django Geo</h4>
+        <form method="post">
+            {% csrf_token %}
+            {{form}}
+            <input type="submit" class="btn btn-success mt-3" value="Plot">
+        </form>
+    </div>
+    <div class="col-sm-8">
+
+        {{ my_map|safe }}
+
+            
+        <a href="{% url 'download' %}?lat={{lat}}&log={{log}}" class="btn btn-warning btn-sm">Download</a>
+        
+    </div>
+    
+</div>
+{% endblock content %}
